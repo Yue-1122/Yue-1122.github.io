@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <script src="config/config.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta target="_blank">
+    <link rel="shortcut icon" href="./images/2.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/personal-info-main.css">
+    <link rel="stylesheet" href="./CSS/personal-info-animate.css">
+    <link rel="stylesheet" href="./CSS/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="./CSS/aos.css" rel="stylesheet">
+
+    <title>关于我</title>
+    <style>
+        /* 额外修复：确保筛选后所有区域正常显示，无意外隐藏 */
+        .honors-section, .others-section, .contact-section, .footer {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        /* 解决卡片筛选后高度闪动导致的内容偏移，保留布局稳定性 */
+        .honors-grid, .honors-timeline, .social-work-list {
+            min-height: 200px;
+            transition: all 0.2s ease;
+        }
+        /* 确保轮播图初始化时不会造成全局滚动跳动 */
+        .carousel, .carousel-inner, .carousel-item {
+            will-change: transform;
+        }
+        /* 修复筛选后内容可能被遮挡的问题 */
+        .honors-section .container, .others-section .container {
+            overflow: visible;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="fakeLoader"></div>
+
+    <div class="profile-page">
+
+        <div class="page-header">
+
+
+            <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+                <div class="container-fluid container">
+                    <a class="navbar-brand log" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="#about">教育背景</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#research">科研经历</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#honors">荣誉获奖</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#others">社会工作与实践</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">联系方式</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <a href="#about" class="go" title="Read More">
+                <svg t="1628741268385" class="j-icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="5238" width="32" height="32">
+                    <path
+                        d="M780.190476 498.070349c0 4.534857-2.21054 9.638603-5.461333 13.003175l-255.024762 263.476825c-3.299556 3.397079-8.208254 5.640127-12.580571 5.640127-4.388571 0-9.313524-2.275556-12.580572-5.640127l-255.024762-263.476825a19.732317 19.732317 0 0 1-5.461333-13.003175c0-4.518603 2.21054-9.622349 5.461333-12.98692l27.355429-28.265651c3.299556-3.397079 7.671873-5.640127 12.580571-5.640127 4.388571 0 9.313524 2.275556 12.564318 5.640127L507.12381 679.042032l215.105015-222.224254c3.283302-3.397079 8.192-5.640127 12.564318-5.640127 4.388571 0 9.313524 2.275556 12.580571 5.640127l27.355429 28.281905c3.283302 3.380825 5.461333 8.452063 5.461333 12.970666z m0-217.120508c0 4.534857-2.21054 9.638603-5.461333 13.003175l-255.024762 263.476825c-3.299556 3.397079-8.208254 5.640127-12.580571 5.640127-4.388571 0-9.313524-2.275556-12.580572-5.640127l-255.024762-263.476825a19.732317 19.732317 0 0 1-5.461333-13.003175c0-4.518603 2.21054-9.622349 5.461333-12.98692l27.355429-28.265651c3.299556-3.397079 7.671873-5.640127 12.580571-5.640127 4.388571 0 9.313524 2.275556 12.564318 5.640127L507.12381 461.937778l215.105015-222.224254c3.283302-3.397079 8.192-5.640127 12.564318-5.640127 4.388571 0 9.313524 2.275556 12.580571 5.640127l27.355429 28.281905c3.283302 3.380825 5.461333 8.452063 5.461333 12.970666z"
+                        p-id="5239" fill="#1296db"></path>
+                </svg>
+            </a>
+            <div class="page-header-mask"></div>
+            <div class="page-header-particles" id="particles-js"></div>
+
+
+            <div class="container">
+                <div class="col-sm-12  .col-xs-12">
+                    <div class="left-content">
+                        <div class="row-no-use" style="height: 40px;"></div>
+                        <div class="personalImage">
+                            <a href="javascript:void(0)">
+                                <img class="myphoto" src="" alt="个人图片">
+                            </a>
+                        </div>
+
+                        <!-- 新增：奶白色文字框 -->
+                        <div class="content-box">   
+                            <h1 class="name">张炜玥</h1>
+                            <p class="motto">自在摇曳，生生不息。</p>
+                        </div>
+                        
+
+                        <div id="myButtons2" class="bs-example">
+                            <a href="#contact" class="hvr-bounce-to-right animate__backInRight">联系我</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="education-title-container" data-aos="fade-up" data-aos-offset="10">
+                    <div class="education-title-wrapper">
+                        <span class="icon">🎓</span>
+                        <h2 class="education-title">教育背景</h2>
+                    </div>
+                    <div class="underline"></div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-offset="100">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card-body">
+                                <!-- 教育背景信息框 -->
+                                <div class="education-box">
+                                    <div class="education-header">
+                                        <h2 class="university-name">东北大学</h2>
+                                        <p class="major-year">计算机科学与技术 | 2023.09 - 至今</p>
+                                        <p class="ranking-gpa">
+                                            <i class="fas fa-trophy" style="color: #d9534f; margin-right: 5px;"></i>
+                                            专业排名：6/196
+                                            <span style="margin: 0 30px;">&nbsp;</span> <!-- 添加一个空白占位符 -->
+                                            <i class="fas fa-star" style="color: #f0ad4e; margin-left: 5px; margin-right: 5px;"></i>
+                                            GPA：4.20/5.00
+                                        </p>
+                                    </div>
+
+                                    <!-- 主要课程 -->
+                                    <div class="main-courses">
+                                        <h5>主要课程</h5>
+                                        <div class="course-grid">
+                                            <!-- 动态插入课程 -->
+                                            <div class="course-item">
+                                                <span class="course-name">高等数学</span>
+                                                <span class="course-score">99</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">概率论与数理统计</span>
+                                                <span class="course-score">99</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">软件工程</span>
+                                                <span class="course-score">98</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">电子技术基础</span>
+                                                <span class="course-score">97</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">计算机组成原理</span>
+                                                <span class="course-score">96</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">汇编语言程序设计</span>
+                                                <span class="course-score">96</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">数据库原理</span>
+                                                <span class="course-score">96</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">计算机网络</span>
+                                                <span class="course-score">95</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">电路原理</span>
+                                                <span class="course-score">95</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">离散数学</span>
+                                                <span class="course-score">94</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">Java程序设计</span>
+                                                <span class="course-score">94</span>
+                                            </div>
+                                            <div class="course-item">
+                                                <span class="course-name">C++程序设计</span>
+                                                <span class="course-score">92</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-section" id="research">
+            <div class="container">
+                <!-- 标题样式与教育背景完全一致 -->
+                <div class="education-title-container" data-aos="fade-up" data-aos-offset="10">
+                    <div class="education-title-wrapper">
+                        <span class="icon">🔬</span>
+                        <h2 class="education-title">科研经历</h2>
+                    </div>
+                    <div class="underline"></div>
+                </div>
+
+                <!-- 科研项目 1 -->
+                <div class="research-card" data-aos="fade-up" data-aos-offset="100">
+                    <div class="research-card-inner">
+                        <!-- 左侧图片区 -->
+                        <div class="research-image">
+                            <img src="./images/research1.jpg" alt="遥感图像超分辨率重建" onerror="this.src='https://via.placeholder.com/200x200?text=Research+Image'">
+                        </div>
+                        <!-- 右侧内容区 -->
+                        <div class="research-content">
+                            <h3 class="research-title">轻量级遥感图像超分辨率重建模型</h3>
+                            <p class="research-meta">2024.04 - 2025.03 | JCR一区论文 | 第二作者（学生一作）</p>
+                            
+                            <div class="research-section-block">
+                                <h4>项目职责</h4>
+                                <ul>
+                                    <li>针对遥感图像超分辨率任务中条带状特征重建难题，提出条形特征超像素交互网络（SFSIN）</li>
+                                    <li>设计轻量化模型架构，针对边缘设备进行优化</li>
+                                    <li>开发端到端训练框架，支持多尺度遥感图像处理</li>
+                                </ul>
+                            </div>
+
+                            <div class="research-section-block">
+                                <h4>技术创新</h4>
+                                <ul>
+                                    <li>动态轮廓卷积（DSConv）引入可学习累积偏移量，实现卷积核沿曲线特征动态采样</li>
+                                    <li>基于超像素聚类（SC），设计超像素内外交差注意力机制（InterSA/IntraSA），通过组间全局依赖建模与组内Top-N筛选，降低90%注意力计算复杂度</li>
+                                    <li>卷积分块注意力上采样（CBAMUpConv）利用空间与通道注意力，强化条带边缘及关键特征</li>
+                                    <li>轻量化模型（784k参数）在AID数据集×2尺度上实现PSNR 33.10dB、SSIM 0.8715，优于RFDN等10+模型</li>
+                                </ul>
+                            </div>
+
+                            <div class="research-section-block">
+                                <h4>项目成果</h4>
+                                <ul>
+                                    <li>以第二作者（学生一作）撰写论文并被JCR一区期刊接收发表</li>
+                                    <li>申请发明专利《基于动态轮廓卷积的轻量级遥感图像超分辨率重建方法》</li>
+                                    <li>主持双创项目《基于超分重建的医学影像疾病诊断平台》并获评省级结题</li>
+                                </ul>
+                            </div>
+
+                            <!-- 技术标签区 -->
+                            <div class="research-tags">
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">超分辨率</span>
+                                <span class="tag">遥感图像</span>
+                                <span class="tag">注意力机制</span>
+                                <span class="tag">模型轻量化</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 科研项目 2（占位，可复制项目1的结构并修改内容） -->
+                <div class="research-card" data-aos="fade-up" data-aos-offset="100">
+                    <div class="research-card-inner">
+                        <div class="research-image">
+                            <img src="./images/research2.jpg" alt="项目图片占位" onerror="this.src='https://via.placeholder.com/200x200?text=Research+Image'">
+                        </div>
+                        <div class="research-content">
+                            <h3 class="research-title">项目名称二</h3>
+                            <p class="research-meta">时间 | 期刊/会议 | 作者角色</p>
+                            <div class="research-section-block">
+                                <h4>项目职责</h4>
+                                <ul><li>描述职责...</li></ul>
+                            </div>
+                            <div class="research-section-block">
+                                <h4>技术创新</h4>
+                                <ul><li>技术点1</li><li>技术点2</li></ul>
+                            </div>
+                            <div class="research-section-block">
+                                <h4>项目成果</h4>
+                                <ul><li>成果描述</li></ul>
+                            </div>
+                            <div class="research-tags">
+                                <span class="tag">技术标签1</span>
+                                <span class="tag">技术标签2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 科研项目 3（占位） -->
+                <div class="research-card" data-aos="fade-up" data-aos-offset="100">
+                    <div class="research-card-inner">
+                        <div class="research-image">
+                            <img src="./images/research3.jpg" alt="项目图片占位" onerror="this.src='https://via.placeholder.com/200x200?text=Research+Image'">
+                        </div>
+                        <div class="research-content">
+                            <h3 class="research-title">项目名称三</h3>
+                            <p class="research-meta">时间 | 期刊/会议 | 作者角色</p>
+                            <div class="research-section-block">
+                                <h4>项目职责</h4>
+                                <ul><li>描述职责...</li></ul>
+                            </div>
+                            <div class="research-section-block">
+                                <h4>技术创新</h4>
+                                <ul><li>技术点1</li><li>技术点2</li></ul>
+                            </div>
+                            <div class="research-section-block">
+                                <h4>项目成果</h4>
+                                <ul><li>成果描述</li></ul>
+                            </div>
+                            <div class="research-tags">
+                                <span class="tag">技术标签1</span>
+                                <span class="tag">技术标签2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="honors-section" id="honors">
+            <div class="container">
+                <!-- 标题样式：与教育背景、科研经历完全一致 -->
+                <div class="education-title-container" data-aos="fade-up" data-aos-offset="10">
+                    <div class="education-title-wrapper">
+                        <span class="icon">🏆</span>
+                        <h2 class="education-title">荣誉获奖</h2>
+                    </div>
+                    <div class="underline"></div>
+                </div>
+
+                <!-- 筛选栏、视图切换、排序 (功能保留，样式稍作间距微调) -->
+                <div class="honors-toolbar" data-aos="fade-up" data-aos-offset="10" style="margin-top: 20px;">
+                    <div class="honors-categories">
+                        <span class="category-btn active" data-cat="all">全部</span>
+                        <span class="category-btn" data-cat="学科竞赛">学科竞赛</span>
+                        <span class="category-btn" data-cat="荣誉称号">荣誉称号</span>
+                        <span class="category-btn" data-cat="奖学金">奖学金</span>
+                        <span class="category-btn" data-cat="文体活动">文体活动</span>
+                    </div>
+                    <div class="honors-views">
+                        <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i> 网格</button>
+                        <button class="view-btn" data-view="timeline"><i class="fas fa-list"></i> 时间线</button>
+                        <select class="sort-select">
+                            <option value="default">排序：默认</option>
+                            <option value="date-asc">日期升序</option>
+                            <option value="date-desc">日期降序</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 荣誉卡片容器（网格视图） -->
+                <div class="honors-grid" id="honorsGrid"></div>
+                <!-- 时间线容器（初始隐藏） -->
+                <div class="honors-timeline" id="honorsTimeline" style="display: none;"></div>
+                <!-- 展开/收起按钮容器（新增） -->
+                <div id="honorsLoadMoreBtn" class="text-center" style="margin-top: 30px;"></div>
+            </div>
+        </section>
+
+        <!-- 原工作经历区块已删除，内容已移至“社会工作与实践”板块内 -->
+
+        <!-- 在“社会工作与实践”板块中，替换原有的简单列表，添加分类筛选与轮播卡片展示 -->
+        <section class="others-section" id="others">
+            <div class="container" data-aos="fade-up" data-aos-offset="100">
+                <!-- 标题区域（保持不变） -->
+                <div class="education-title-container" data-aos="fade-up" data-aos-offset="10">
+                    <div class="education-title-wrapper">
+                        <span class="icon">💼</span>
+                        <h2 class="education-title">社会工作与实践</h2>
+                    </div>
+                    <div class="underline"></div>
+                </div>
+
+                <!-- 新增：分类筛选栏 + 排序下拉（与荣誉获奖风格统一） -->
+                <div class="honors-toolbar" data-aos="fade-up" data-aos-offset="10" style="margin-top: 20px; margin-bottom: 30px;">
+                    <div class="honors-categories">
+                        <span class="category-btn active" data-cat="all">全部</span>
+                        <span class="category-btn" data-cat="社会工作">社会工作</span>
+                        <span class="category-btn" data-cat="志愿实践">志愿实践</span>
+                    </div>
+                    <div class="honors-views">
+                        <select class="sort-select" id="socialSortSelect">
+                            <option value="date-desc">时间：最新优先</option>
+                            <option value="date-asc">时间：最早优先</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 卡片容器：原有 id="social-work-list" 将被动态填充 -->
+                <div id="social-work-list" class="social-work-list"></div>
+                <!-- 展开/收起按钮容器（新增） -->
+                <div id="socialExpandBtnContainer" class="text-center" style="margin-top: 30px;"> </div>
+            </div>
+        </section>
+
+        <script>
+            // 增强的社会工作与实践数据（基于您的九段经历，整合图片与详细描述）
+            // 注：实际项目中建议将此数据移至 config.js，此处为便于演示直接定义，后续可合并。
+            const enhancedSocialWorks = [
+                {
+                    title: "校易班学生工作站视觉设计部干事",
+                    period: "2023.09 - 2024.09",
+                    description: "<ul><li>系统学习PS、秀米、拍照技巧、公文写作</li><li>累计制作活动海报12份，活动宣传banner8份</li><li>参与校级迎新、毕业季等大型活动的视觉设计支持</li></ul>",
+                    type: "社会工作",
+                    images: [
+                        "./images/影像设计部/感悟瞬间，实践留迹.jpg",   // 设计办公相关
+                        "./images/影像设计部/老街漫步·故里生辉.jpg",
+                        "./images/影像设计部/小雪(1).jpg",
+                        "./images/影像设计部/帧藏美好 梦启东秦 拷贝2.jpg",
+                        "./images/影像设计部/帧藏美好 梦启东秦banner.jpg",
+                        "./images/影像设计部/最美连队投票活动 拷贝.jpg"
+                    ]
+                },
+                {
+                    title: "校易班学生工作站影像设计部副部长",
+                    period: "2024.09 - 2025.09",
+                    description: "<ul><li>负责组织部门培训，主讲PS培训</li><li>审核活动海报和banner共计30余份</li><li>统筹校级活动拍摄任务，协调人员分工</li></ul>",
+                    type: "社会工作",
+                    images: [
+                        "./images/视觉设计部/1.jpg",
+                        "./images/视觉设计部/2.jpg",
+                        "./images/视觉设计部/3.jpg",
+                        "./images/视觉设计部/4.jpg",
+                        "./images/视觉设计部/5.jpg",
+                        "./images/视觉设计部/6.jpg"
+                    ]
+                },
+                {
+                    title: "计算机科学与技术2301班团支部书记",
+                    period: "2024.09 - 至今",
+                    description: "<ul><li>认真落实校、院团委下发的各项任务</li><li>组织开展主题团日活动15+场</li><li>所在团支部荣获2024年度五四红旗团支部</li></ul>",
+                    type: "社会工作",
+                    images: [
+                        "./images/团支书/2.jpg",
+                        "./images/团支书/3.jpg",
+                        "./images/团支书/4.jpg",
+                        "./images/团支书/5.jpg"
+                    ]
+                },
+                {
+                    title: "政府部门实习（寒假实践）",
+                    period: "2024.01 - 2024.02",
+                    description: "<ul><li>负责工作文件的接收、整理和回稿</li><li>参与下乡活动，走访困难家庭12户，协助记录民情</li><li>负责县级大型活动的拍照和新闻稿撰写</li></ul>",
+                    type: "志愿实践",
+                    images: [
+                        "./images/妇联/办公室处理文件.jpg",
+                        "./images/妇联/办公室工作.jpg",
+                        "./images/妇联/公众号排版.jpg",
+                        "./images/妇联/灾后恢复重建走访现场.jpg",
+                        "./images/妇联/真情暖童心，相伴护成长.jpg"
+                    ]
+                },
+                {
+                    title: "红色旅游文化资源调研（团队负责人）",
+                    period: "2024.08",
+                    description: "<ul><li>赴河北省保定市阜平县开展“红色旅游文化资源”调研</li><li>走访晋察冀边区革命纪念馆等3处红色遗址，采访当地居民20余人</li><li>撰写调研报告，提出数字化保护建议，获评三下乡“先进个人”称号</li></ul>",
+                    type: "志愿实践",
+                    images: [
+                        "./images/枣香圆梦/1.jpg",
+                        "./images/枣香圆梦/2.jpg",
+                        "./images/枣香圆梦/3.jpg",
+                        "./images/枣香圆梦/4.jpg",
+                        "./images/枣香圆梦/5.jpg",
+                        "./images/枣香圆梦/6.jpg",
+                        "./images/枣香圆梦/7.jpg"
+                    ]
+                },
+                {
+                    title: "计算机科学与技术2405班辅导员助理",
+                    period: "2024.09 - 2024.12",
+                    description: "<ul><li>组织开展“破冰”主题班会、班干部选举班会，帮助新生快速融入集体</li><li>给予新生学业、生活方面的指导</li><li>协助辅导员完成班级信息统计等工作</li></ul>",
+                    type: "社会工作",
+                    images: [
+                        "./images/助导/1.jpg",
+                        "./images/助导/2.jpg",
+                        "./images/助导/3.jpg"
+                    ]
+                },
+                {
+                    title: "燕赵薪火红色文化调研团（团队负责人）",
+                    period: "2025.07",
+                    description: "<ul><li>赴河北省石家庄市开展抗日战争胜利80周年纪念调研</li><li>参观西柏坡纪念馆、河北省博物馆等，剪辑3份记录视频</li></ul>",
+                    type: "志愿实践",
+                    images: [
+                        "./images/易班三下乡/合照1.jpg",
+                        "./images/易班三下乡/合照3.jpg",
+                        "./images/易班三下乡/合照4.jpg",
+                        "./images/易班三下乡/讲解2.jpg",
+                        "./images/易班三下乡/留言墙2.jpg",
+                        "./images/易班三下乡/学习1.jpg"
+                    ]
+                },
+                {
+                    title: "计算机与通信工程学院学生第四党支部预备委员",
+                    period: "2025.04 - 至今",
+                    description: "<ul><li>策划并组织10+场特色党日活动</li><li>协助支部书记完成党员发展材料整理、会议记录等工作</li><li>负责制定党支部年度工作计划</li></ul>",
+                    type: "社会工作",
+                    images: [
+                        "./images/党日/1.jpg",
+                        "./images/党日/2.jpg",
+                        "./images/党日/3.jpg",
+                        "./images/党日/4.jpg",
+                        "./images/党日/5.jpg",
+                        "./images/党日/6.jpg"
+                    ]
+                },
+                {
+                    title: "云支教活动（线上支教）",
+                    period: "2024.08",
+                    description: "<ul><li>参与“云支教”专项活动，对接初升高学生开展线上辅导</li><li>完成20课时教学，负责教学高中理科知识</li><li>获得全国大学生“返家乡”社会实践专项活动志愿者证书</li></ul>",
+                    type: "志愿实践",
+                    images: [
+                        "./images/云支教/云支教.jpg",
+                        "./images/云支教/照片1.jpg",
+                        "./images/云支教/1.jpg",
+                        "./images/云支教/照片2.jpg",
+                        "./images/云支教/2.jpg"
+                    ]
+                }
+            ];
+
+            // 辅助：从 period 字符串中提取起始日期（用于排序）
+            function getStartDateFromPeriod(period) {
+                const match = period.match(/(\d{4}\.\d{2})/);
+                if (match) {
+                    const [year, month] = match[1].split('.');
+                    return new Date(parseInt(year), parseInt(month) - 1, 1);
+                }
+                return new Date(0);
+            }
+
+            let currentSocialCat = 'all';
+            let currentSocialSort = 'date-desc';
+            let socialExpanded = false;   // 是否展开全部
+
+            // 过滤 + 排序
+            function filterAndSortSocial() {
+                let filtered = currentSocialCat === 'all'
+                    ? [...enhancedSocialWorks]
+                    : enhancedSocialWorks.filter(item => item.type === currentSocialCat);
+
+                if (currentSocialSort === 'date-asc') {
+                    filtered.sort((a, b) => getStartDateFromPeriod(a.period) - getStartDateFromPeriod(b.period));
+                } else {
+                    filtered.sort((a, b) => getStartDateFromPeriod(b.period) - getStartDateFromPeriod(a.period));
+                }
+                return filtered;
+            }
+
+            // 渲染卡片（支持数量限制）
+            function renderSocialWorksWithLimit(limit) {
+                const container = document.getElementById('social-work-list');
+                if (!container) return;
+                const allData = filterAndSortSocial();
+                const displayData = limit ? allData.slice(0, limit) : allData;
+                container.innerHTML = '';
+
+                displayData.forEach((item, idx) => {
+                    const carouselId = `socialCarousel_${idx}_${Date.now()}`;
+                    let indicatorsHtml = '';
+                    let innerHtml = '';
+                    if (item.images && item.images.length) {
+                        item.images.forEach((img, i) => {
+                            indicatorsHtml += `<li data-target="#${carouselId}" data-slide-to="${i}" class="${i === 0 ? 'active' : ''}"></li>`;
+                            innerHtml += `<div class="carousel-item ${i === 0 ? 'active' : ''}">
+                                                <img class="d-block w-100" src="${img}" alt="活动图片 ${i+1}">
+                                            </div>`;
+                        });
+                    } else {
+                        innerHtml = `<div class="carousel-item active"><div class="no-image-placeholder">暂无图片</div></div>`;
+                    }
+
+                    const carouselHtml = `
+                        <div id="${carouselId}" class="carousel slide" data-ride="carousel" data-interval="4000">
+                            <ol class="carousel-indicators">${indicatorsHtml}</ol>
+                            <div class="carousel-inner">${innerHtml}</div>
+                            <a class="carousel-control-prev" href="#${carouselId}" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#${carouselId}" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    `;
+
+                    const cardHtml = `
+                        <div class="social-card" data-type="${item.type}" data-period="${item.period}">
+                            <div class="social-card-inner">
+                                <div class="social-carousel">${carouselHtml}</div>
+                                <div class="social-text">
+                                    <div class="social-content">
+                                        <h3>${escapeHtml(item.title)}</h3>
+                                        <p class="social-period">${escapeHtml(item.period)}</p>
+                                        <div class="social-desc">${item.description}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', cardHtml);
+                });
+
+                // 重新初始化轮播
+                $('.carousel').carousel({ interval: 4000, wrap: true });
+            }
+
+            function escapeHtml(str) {
+                if (!str) return '';
+                return str.replace(/[&<>]/g, function(m) {
+                    if (m === '&') return '&amp;';
+                    if (m === '<') return '&lt;';
+                    if (m === '>') return '&gt;';
+                    return m;
+                });
+            }
+
+            // 渲染展开/收起按钮
+            function renderExpandButton(totalItems) {
+                const btnContainer = document.getElementById('socialExpandBtnContainer');
+                if (!btnContainer) return;
+                if (totalItems <= 3) {
+                    btnContainer.innerHTML = '';
+                    btnContainer.style.display = 'none';
+                    return;
+                }
+                btnContainer.style.display = 'block';
+                const buttonText = socialExpanded ? '收起 ↑' : '展开更多 ↓';
+                btnContainer.innerHTML = `<button class="btn btn-outline-primary btn-sm" id="toggleSocialBtn">${buttonText}</button>`;
+                // 重新绑定按钮事件（避免重复绑定）
+                const newBtn = document.getElementById('toggleSocialBtn');
+                if (newBtn) {
+                    newBtn.replaceWith(newBtn.cloneNode(true));
+                    const freshBtn = document.getElementById('toggleSocialBtn');
+                    freshBtn.addEventListener('click', () => {
+                        const wasExpanded = socialExpanded;   // 记录展开状态
+                        socialExpanded = !socialExpanded;
+                        updateSocialView();
+                        // 仅在收起时滚动到社会工作板块顶部
+                        if (wasExpanded && !socialExpanded) {
+                            setTimeout(() => {
+                                document.getElementById('others').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 100);
+                        }
+                    });
+                }
+            }
+
+            // 核心更新函数
+            function updateSocialView() {
+                const allData = filterAndSortSocial();
+                const total = allData.length;
+                const limit = socialExpanded ? total : Math.min(3, total);
+                renderSocialWorksWithLimit(limit);
+                renderExpandButton(total);
+                if (typeof AOS !== 'undefined') AOS.refresh();
+                window.dispatchEvent(new Event('resize'));
+            }
+
+            // 重置展开状态并更新（用于筛选、排序时）
+            function resetExpandedAndUpdate() {
+                socialExpanded = false;
+                updateSocialView();
+            }
+
+            // ----- 使用事件委托监听筛选栏和排序下拉 -----
+            function bindSocialEventsOnce() {
+                const container = document.querySelector('.others-section');
+                if (!container) return;
+
+                // 监听分类按钮点击（事件委托）
+                container.addEventListener('click', function(e) {
+                    const catBtn = e.target.closest('.category-btn');
+                    if (catBtn && catBtn.closest('.others-section')) {
+                        e.preventDefault();
+                        // 更新按钮 active 样式
+                        const allCatBtns = container.querySelectorAll('.category-btn');
+                        allCatBtns.forEach(btn => btn.classList.remove('active'));
+                        catBtn.classList.add('active');
+                        // 更新筛选条件
+                        currentSocialCat = catBtn.getAttribute('data-cat');
+                        resetExpandedAndUpdate();
+                    }
+                });
+
+                // 监听排序下拉变化
+                const sortSelect = document.getElementById('socialSortSelect');
+                if (sortSelect) {
+                    sortSelect.removeEventListener('change', socialSortHandler);
+                    sortSelect.addEventListener('change', socialSortHandler);
+                }
+            }
+
+            // 分类点击处理
+            function socialCatHandler(e) {
+                const btns = document.querySelectorAll('.others-section .category-btn');
+                btns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentSocialCat = this.getAttribute('data-cat');
+                // 直接刷新视图，保留当前的展开/收起状态
+                updateSocialView();
+            }
+
+            // 排序下拉处理
+            function socialSortHandler(e) {
+                currentSocialSort = e.target.value;
+                updateSocialView();        // 直接刷新，保留展开状态
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // 移除原有监听，重新绑定（防止多次绑定）
+                const catBtns = document.querySelectorAll('.others-section .category-btn');
+                const sortSelect = document.getElementById('socialSortSelect');
+                
+                catBtns.forEach(btn => {
+                    btn.removeEventListener('click', socialCatHandler);
+                    btn.addEventListener('click', socialCatHandler);
+                });
+                if (sortSelect) {
+                    sortSelect.removeEventListener('change', socialSortHandler);
+                    sortSelect.addEventListener('change', socialSortHandler);
+                }
+                
+                socialExpanded = false;
+                updateSocialView();
+            });
+        </script>
+    </div>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 footer-left">
+                    如果您对我的经历感兴趣，欢迎随时联系我<br>
+                    -----------------------------------------------<br>
+                    © 2026 张炜玥 - 个人主页<br>
+                    我脚下的影子，从来不肯像谁
+                </div>
+                <div class="col-md-6 footer-right">
+                    <p><strong>电话</strong><br><span class="phone"></span></p>
+                    <p><strong>邮箱</strong><br><span class="email"></span></p>
+                    <p><strong>地址</strong><br><span class="address"></span></p>
+                    <p><strong>QQ</strong><br><span class="qq"></span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 获奖详情模态框 -->
+    <div class="modal fade" id="honorModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="honorModalTitle">获奖详情</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <img id="honorModalImage" src="" alt="获奖图片" style="max-width: 100%; max-height: 400px; border-radius: 8px;">
+                    </div>
+                    <div id="honorModalDescription" style="font-size: 1rem; line-height: 1.5; color: #333;">
+                        <!-- 详细文字介绍将动态填充 -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./JS/jquery-3.6.0.js">
+</script>
+<script src="./JS/popper.min.js">
+</script>
+<script src="./JS/bootstrap.min.js">
+</script>
+
+<script src="./JS/particles.min.js"></script>
+<script src="./JS/app.js"></script>
+<script src="./JS/aos.js"></script>
+<script src="./JS/personal-info-main.js"></script>
+<script>
+    AOS.init();
+</script>
+
+<script>
+    // 荣誉数据
+    const honorsData = [
+    {
+        title: "国际大学生数学建模竞赛",
+        description: "国家级一等奖（Meritorious Winner）",
+        category: "学科竞赛",   // 原为 "专业竞赛"
+        date: "2025-05",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/国际大学生数学建模竞赛国家级一等奖.jpg",   // 新增：图片路径
+        detailDesc: "作品：：Medal Exploration: Modeling Olympic Glory 针对奥运会奖牌数预测中影响因素复杂、预测精度低的问题以及为量化“名帅效应”对奖牌数的影响，设计并实现TECP组合预测模型，融合两阶段随机森林+GMM+非线性回归；建立EEIA效应评估模型，通过CUSUM检验检测结构性突变，并构建判别因子进行评估名帅贡献；创新性地应用GMM积分法，通过计算预测数据均值与历史数据均值的比率作为评估因子来评估各国进步或退步潜力。"  // 新增：详细描述
+    },
+    {
+        title: "“东方财富杯”全国大学生金融精英挑战赛",
+        description: "国家级三等奖",
+        category: "学科竞赛",
+        date: "2025-08",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/“东方财富杯”全国大学生金融精英挑战赛国家级三等奖.png",
+        detailDesc: "作为操盘手"
+    },
+    {
+        title: "全国大学生学术英语词汇赛",
+        description: "国家级二等奖",
+        category: "学科竞赛",
+        date: "2025-05",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/全国大学生学术英语词汇赛国家级二等奖.png",
+        detailDesc: "学习并积累了丰富的英语词汇，提升了学术英语水平，为未来的学术研究提供了坚实的基础。"
+    },
+    {
+        title: "全国大学生数学建模竞赛",
+        description: "省级二等奖",
+        category: "学科竞赛",
+        date: "2025-11",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/2025年全国大学生数学建模竞赛省级二等奖_00.png",
+        detailDesc: "作品：基于非线性最小二乘反演的碳化硅外延层厚度求解研究 针对红外干涉测量外延层厚度时存在的噪声干扰与级数分配模糊问题，设计双光束干涉反演算法"
+    },
+    {
+        title: "全国大学生市场调查分析大赛暨海峡两岸大学生市场调查分析大赛",
+        description: "省级三等奖",
+        category: "学科竞赛",
+        date: "2025-06",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/2025年全国大学生数学建模竞赛省级二等奖_00.png",
+        detailDesc: "作品：：AI馨伴老-养老陪伴机器人在中小城市的应用-以秦皇岛市为例 针对传统回归方法难以解析空巢老人情感陪伴需求因果路径的问题，构建多维度用户需求分析体系。"
+    },
+    {
+        title: "亚太地区大学生数学建模竞赛",
+        description: "省级二等奖",
+        category: "学科竞赛",
+        date: "2024-12",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/2024-亚太英文赛省级二等奖.jpg",
+        detailDesc: "作品：：Development Analyses and Strategies for Pet Industry and related Industries "
+    },
+    {
+        title: "亚太地区大学生数学建模竞赛",
+        description: "省级三等奖",
+        category: "学科竞赛",
+        date: "2026-01",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/2025亚太英文赛省级三等奖.png",
+        detailDesc: "作品：：Optimal Design of PDMS Multilayer Film Radiative Coolers Using Transfer Matrix Method and Differential Evolution Algorithm"
+    },
+    {
+        title: "第十七届全国大学生数学竞赛非数学A类",
+        description: "省级三等奖",
+        category: "学科竞赛",
+        date: "2025-12",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/第十七届全国大学生数学竞赛省级三等奖.jpg",
+        detailDesc: "高等数学知识掌握良好"
+    },
+    {
+        title: "全国大学生机器人竞赛（ROBOMASTER）",
+        description: "校级二等奖",
+        category: "学科竞赛",
+        date: "2025-01",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/MIC.png",
+        detailDesc: "项目利用深度学习和ROS系统，实现了无人车在复杂环境下的自主巡检与障碍物识别"
+    },
+    {
+        title: "“新道数智人才杯”高等院校数智人力（人力资源大数据赛项）大赛",
+        description: "国家级三等奖",
+        category: "学科竞赛",
+        date: "2024-11",
+        certIcon: "fas fa-trophy",
+        imgUrl: "./images/金砖大赛国家级三等奖.jpg",
+        detailDesc: "负责数据分析"
+    },
+    
+    // 其他奖项同样修改 category，并补充 imgUrl 和 detailDesc
+    {
+        title: "三好学生",
+        description: "",
+        category: "荣誉称号",
+        date: "2024-11",
+        certIcon: "fas fa-user-graduate",
+        imgUrl: "./images/三好学生-2024.11.jpg",
+        detailDesc: "学业成绩优秀，荣获“三好学生”称号。"
+    },
+    {
+        title: "三好学生标兵",
+        description: "",
+        category: "荣誉称号",
+        date: "2025-11",
+        certIcon: "fas fa-user-graduate",
+        imgUrl: "./images/三好学生标兵-2025.11_00.png",
+        detailDesc: "学业成绩优秀，竞赛成果丰富，荣获“三好学生标兵”称号。"
+    },
+    {
+        title: "优秀团员",
+        description: "",
+        category: "荣誉称号",
+        date: "2024-05",
+        certIcon: "fas fa-user-graduate",
+        imgUrl: "./images/优秀团员-2024.05.jpg",
+        detailDesc: "学业成绩优秀，荣获“优秀团员”称号"
+    },
+    {
+        title: "优秀团员标兵",
+        description: "",
+        category: "荣誉称号",
+        date: "2025-05",
+        certIcon: "fas fa-user-graduate",
+        imgUrl: "./images/优秀团员标兵-2025.05_00.png",
+        detailDesc: "学业成绩优秀，积极参加志愿服务和社会实践活动，荣获“优秀团员标兵”称号"
+    },
+    {
+        title: "青年学习标兵",
+        description: "",
+        category: "荣誉称号",
+        date: "2025-11",
+        certIcon: "fas fa-user-graduate",
+        imgUrl: "./images/青年学习标兵.jpg",
+        detailDesc: "绩点稳居专业前5%，经申请和答辩后荣获“青年学习标兵”称号"
+    },
+    {
+        title: "创新创业奖学金",
+        description: "",
+        category: "奖学金",
+        date: "2025-05",
+        certIcon: "fas fa-award",
+        imgUrl: "./images/创新创业奖学金-2025.05.jpg",
+        detailDesc: "比赛成绩优异，荣获创新创业奖学金"
+    },
+    {
+        title: "校综合二等奖学金",
+        description: "",
+        category: "奖学金",
+        date: "2024-11",
+        certIcon: "fas fa-award",
+        imgUrl: "./images/校级二等奖学金-2024.11.jpg",
+        detailDesc: "学习认真刻苦，荣获校综合二等奖学金"
+    },
+    {
+        title: "校综合二等奖学金",
+        description: "",
+        category: "奖学金",
+        date: "2025-04",
+        certIcon: "fas fa-award",
+        imgUrl: "./images/校级二等奖学金-2025.04.jpg",
+        detailDesc: "比赛获奖丰富，积极参加文体活动，荣获校综合二等奖学金"
+    },
+    {
+        title: "校综合三等奖学金",
+        description: "",
+        category: "奖学金",
+        date: "2024-04",
+        certIcon: "fas fa-award",
+        imgUrl: "./images/校级三等奖学金-2024.04.jpg",
+        detailDesc: "学习认真刻苦，荣获校综合三等奖学金"
+    },
+    {
+        title: "国家奖学金",
+        description: "",
+        category: "奖学金",
+        date: "2025-12",
+        certIcon: "fas fa-award",
+        imgUrl: "./images/2025年度国家奖学金_00.png",
+        detailDesc: "2024-2025学年综合测评排名专业第二，荣获国家奖学金。"
+    },
+    {
+        title: "CET-4 良好",
+        description: "",
+        category: "文体活动",   // 语言能力归入文体活动
+        date: "2023-12",
+        certIcon: "fas fa-language",
+        imgUrl: "./images/四级572.jpg",
+        detailDesc: "大学英语四级考试取得573分。"
+    },
+    {
+        title: "CET-6 良好",
+        description: "",
+        category: "文体活动",   // 语言能力归入文体活动
+        date: "2024-06",
+        certIcon: "fas fa-language",
+        imgUrl: "./images/六级553.jpg",
+        detailDesc: "大学英语六级考试取得553分。"
+    },
+    {
+        title: "“我的家乡我代言”短视频比赛",
+        description: "校级二等奖",
+        category: "文体活动",
+        date: "2024-04",
+        certIcon: "fas fa-microphone-alt",
+        imgUrl: "./images/“我的家乡我代言”短视频比赛二等奖.jpg",
+        detailDesc: "具备良好的视频剪辑思路和技巧，独立制作一份关于家乡的短视频，获得二等奖。"
+    },
+    {
+        title: "“学廉知纪·崇洁尚廉”知识竞赛",
+        description: "二等奖",
+        category: "文体活动",
+        date: "2025-11",
+        certIcon: "fas fa-microphone-alt",
+        imgUrl: "./images/“学廉知纪·崇洁尚廉”知识竞赛二等奖.jpg",
+        detailDesc: "四史知识掌握良好，获得“学廉知纪·崇洁尚廉”知识竞赛二等奖。"
+    },
+    {
+        title: "e能杯",
+        description: "院级一等奖",
+        category: "文体活动",
+        date: "2023-11",
+        certIcon: "fas fa-microphone-alt",
+        imgUrl: "./images/e能杯一等奖.jpg",
+        detailDesc: "高数知识掌握良好，获得“e能杯”一等奖。"
+    },
+    {
+        title: "“东采杯”知识竞赛",
+        description: "校级三等奖",
+        category: "文体活动",
+        date: "2024-06",
+        certIcon: "fas fa-microphone-alt",
+        imgUrl: "./images/东采杯知识竞赛三等奖.jpg",
+        detailDesc: "临场反应能力优秀，作为学院代表参加“东采杯”知识竞赛，获得三等奖。"
+    },
+    {
+        title: "“计语杯”知识竞赛",
+        description: "院级一等奖",
+        category: "文体活动",
+        date: "2024-06",
+        certIcon: "fas fa-microphone-alt",
+        imgUrl: "./images/计语杯知识竞赛一等奖.jpg",
+        detailDesc: "短时记忆能力优秀，参加“计语杯”知识竞赛，获得一等奖。"
+    }
+];
+
+    // ======================= 荣誉获奖交互状态 =======================
+    let currentView = 'grid';          // 'grid' 或 'timeline'
+    let currentCategory = 'all';       // 筛选分类
+    let currentSort = 'default';       // 排序方式
+    let expanded = false;              // 是否展开显示全部（true=显示全部，false=只显示前6条）
+
+    // 辅助函数：过滤 + 排序（返回全部符合条件的数组）
+    function filterAndSort(data) {
+        let filtered = currentCategory === 'all' ? data : data.filter(item => item.category === currentCategory);
+        if (currentSort === 'date-asc') {
+            filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
+        } else if (currentSort === 'date-desc') {
+            filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+        } else {
+            // 默认按时间倒序（最新的在前）
+            filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+        return filtered;
+    }
+
+    // 渲染网格视图（支持条目限制）
+    function renderGrid(data, limit = Infinity) {
+        const container = document.getElementById('honorsGrid');
+        if (!container) return;
+        const displayData = data.slice(0, limit);
+        container.innerHTML = '';
+        displayData.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = 'honor-card';
+            card.style.cursor = 'pointer';
+            card.innerHTML = `
+                <div class="honor-card-inner">
+                    <div class="honor-icon"><i class="${item.certIcon}"></i></div>
+                    <div class="honor-content">
+                        <h4>${escapeHtml(item.title)}</h4>
+                        <p>${escapeHtml(item.description)}</p>
+                        <div class="honor-meta">
+                            <span class="honor-category">${escapeHtml(item.category)}</span>
+                            <span class="honor-date">${escapeHtml(item.date)}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            card.addEventListener('click', () => showHonorDetail(item));
+            container.appendChild(card);
+        });
+    }
+
+    // 渲染时间线视图（支持条目限制）
+    function renderTimeline(data, limit = Infinity) {
+        const container = document.getElementById('honorsTimeline');
+        if (!container) return;
+        const displayData = data.slice(0, limit);
+        container.innerHTML = '';
+        displayData.forEach((item) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'timeline-item';
+            timelineItem.style.cursor = 'pointer';
+            timelineItem.innerHTML = `
+                <div class="timeline-badge"><i class="${item.certIcon}"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>${escapeHtml(item.title)}</h4>
+                        <span class="timeline-date">${escapeHtml(item.date)}</span>
+                    </div>
+                    <div class="timeline-body">
+                        <p>${escapeHtml(item.description)}</p>
+                        <span class="honor-category">${escapeHtml(item.category)}</span>
+                    </div>
+                </div>
+            `;
+            timelineItem.addEventListener('click', () => showHonorDetail(item));
+            container.appendChild(timelineItem);
+        });
+    }
+
+    // 简单防XSS
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    // 显示获奖详情模态框（保留原有功能）
+    function showHonorDetail(honor) {
+        const modal = $('#honorModal');
+        $('#honorModalTitle').text(honor.title);
+        const imgElement = $('#honorModalImage');
+        imgElement.attr('src', honor.imgUrl || 'https://via.placeholder.com/400x300?text=暂无图片');
+        imgElement.attr('alt', honor.title);
+        $('#honorModalDescription').html(honor.detailDesc || '暂无详细介绍。');
+        modal.modal('show');
+    }
+
+    // 生成并绑定“展开/收起”按钮（根据当前筛选/排序后的总条目数以及 expanded 状态）
+    function renderLoadMoreButton(totalItems) {
+        const btnContainer = document.getElementById('honorsLoadMoreBtn');
+        if (!btnContainer) return;
+        // 如果总条目数 ≤ 6，无需展开/收起按钮，直接清空并隐藏
+        if (totalItems <= 6) {
+            btnContainer.innerHTML = '';
+            btnContainer.style.display = 'none';
+            return;
+        }
+        btnContainer.style.display = 'block';
+        const buttonText = expanded ? '收起 ↑' : '展开更多 ↓';
+        btnContainer.innerHTML = `<button class="btn btn-outline-primary btn-sm" id="toggleHonorsBtn">${buttonText}</button>`;
+        const toggleBtn = document.getElementById('toggleHonorsBtn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const wasExpanded = expanded;      // 记录展开状态
+                expanded = !expanded;
+                updateView();
+                // 仅在收起时（之前展开，现在收起）滚动到荣誉板块顶部
+                if (wasExpanded && !expanded) {
+                    setTimeout(() => {
+                        document.getElementById('honors').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+        }
+    }
+
+    // 核心更新函数：根据当前筛选、排序、视图和展开状态渲染界面
+    function updateView() {
+        const filteredData = filterAndSort(honorsData);
+        const total = filteredData.length;
+        // 根据 expanded 决定显示条目数：展开显示全部，否则最多6条
+        const limit = expanded ? total : Math.min(6, total);
+        if (currentView === 'grid') {
+            document.getElementById('honorsGrid').style.display = 'grid';
+            document.getElementById('honorsTimeline').style.display = 'none';
+            renderGrid(filteredData, limit);
+        } else {
+            document.getElementById('honorsGrid').style.display = 'none';
+            document.getElementById('honorsTimeline').style.display = 'block';
+            renderTimeline(filteredData, limit);
+        }
+        // 渲染展开/收起按钮（必须放在渲染完卡片之后，以便获取准确的 total）
+        renderLoadMoreButton(total);
+
+        // 修复外部可能的布局刷新：重新触发 AOS 扫描（动态内容）
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+        // 强制重新计算布局，避免高度突变导致遮挡
+        window.dispatchEvent(new Event('resize'));
+    }
+
+    // 重置展开状态并更新（用于筛选、排序、切换视图时强制收起）
+    function resetExpandedAndUpdate() {
+        expanded = false;
+        updateView();
+    }
+
+    // ======================= 事件绑定（仅作用于荣誉板块内部） =======================
+    // 分类按钮
+    document.querySelectorAll('.honors-section .category-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.honors-section .category-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentCategory = this.getAttribute('data-cat');
+            resetExpandedAndUpdate();
+        });
+    });
+
+    // 视图切换按钮
+    document.querySelectorAll('.honors-section .view-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.honors-section .view-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentView = this.getAttribute('data-view');
+            resetExpandedAndUpdate();
+        });
+    });
+
+    // 排序下拉框
+    const sortSelect = document.querySelector('.honors-section .sort-select');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function(e) {
+            currentSort = e.target.value;
+            resetExpandedAndUpdate();
+        });
+    }
+
+    // 初始渲染
+    updateView();
+</script>
+
+
+</html>
