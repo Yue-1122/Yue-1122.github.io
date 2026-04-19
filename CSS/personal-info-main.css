@@ -239,7 +239,7 @@ html {
 
 .about-section {
     position: relative;
-    background-image: url('../images/希望.jpg');  /* 请确认相对路径正确 */
+    background-image: url('../images/hope.jpg');  /* 请确认相对路径正确 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -663,7 +663,7 @@ html {
 }
 
 .others-section {
-    background-image: url('../images/希望.jpg') !important;
+    background-image: url('../images/hope.jpg') !important;
     background-repeat: no-repeat !important;
     margin-top: 30px !important;
     padding-top: 40px !important;
@@ -1213,7 +1213,7 @@ html {
     left: 0;
     width: 100%;
     height: calc(100% + 100px);  /* 比父容器多延伸 100px，根据需要调整 */
-    background-image: url('../images/希望.jpg');
+    background-image: url('../images/hope.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;  /* 如需固定背景，保留；否则删除 */
@@ -1384,7 +1384,7 @@ html {
 /* ========== 荣誉获奖样式（修改部分） ========== */
 .honors-section {
     position: relative;
-    background-image: url('../images/希望.jpg');
+    background-image: url('../images/hope.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

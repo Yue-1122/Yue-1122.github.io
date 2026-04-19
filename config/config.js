@@ -264,7 +264,7 @@ var config = {
                 "完整实现ROS2节点通信、算法集成与实车验证"
             ],
             tags: ["ROS2", "EKF", "PnP", "目标跟踪", "C++"],
-            image: "./images/科研/1.png"
+            image: "./images/rese/1.png"
         },
         {
             title: "中小城市情感陪伴机器人需求分析与用户决策模型",
@@ -284,7 +284,7 @@ var config = {
                 "成功识别影响需求的6个显著特征，为产品设计提供数据支撑"
             ],
             tags: ["Python", "SEM", "因子分析", "Logistic回归", "数据分析"],
-            image: "./images/科研/2.png"
+            image: "./images/rese/2.png"
         },
         {
             title: "基于非线性最小二乘反演的碳化硅外延层厚度求解",
@@ -304,7 +304,7 @@ var config = {
                 "成功判定硅晶圆片存在多光束干涉并求得厚度4.6 μm"
             ],
             tags: ["Matlab", "非线性最小二乘", "Levenberg-Marquardt", "光谱分析", "信号处理"],
-            image: "./images/科研/3.png"
+            image: "./images/rese/3.png"
         }
     ]
 
